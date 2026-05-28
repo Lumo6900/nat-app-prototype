@@ -17,7 +17,7 @@ let shuffledGestures = 0;
 const $ = (id) => document.getElementById(id);
 
 const LOGIN_USER = 'nat';
-const LOGIN_PASSWORD_SHA256 = '37805a379c62f823b9be349acecc636214fc803f9d884d34e395492da10c5cce';
+const LOGIN_PASSWORD_SHA256 = '4dd3718c42c131a291e60eedbe701b04c3501025e3158dfd4e4869f3484a47a4';
 
 async function sha256(text) {
   const data = new TextEncoder().encode(text);
@@ -26,8 +26,9 @@ async function sha256(text) {
 }
 
 function unlockDemo() {
-  sessionStorage.setItem('natDemoUnlocked', '1');
   $('loginGate').classList.add('hidden');
+  $('appRoot').classList.remove('locked');
+  $('appRoot').removeAttribute('aria-hidden');
 }
 
 $('loginForm').addEventListener('submit', async (event) => {
@@ -42,7 +43,7 @@ $('loginForm').addEventListener('submit', async (event) => {
   }
 });
 
-if (sessionStorage.getItem('natDemoUnlocked') === '1') unlockDemo();
+sessionStorage.removeItem('natDemoUnlocked');
 
 const instruction = $('instruction');
 const deckEl = $('deck');
@@ -281,6 +282,7 @@ canvas.addEventListener('pointerup', () => drawing = false);
 canvas.addEventListener('pointerleave', () => drawing = false);
 
 primaryBtn.onclick = () => {
+  if ($('appRoot').classList.contains('locked')) return;
   if (phase === 'intro') setPhase('shuffle');
   else if (phase === 'shuffle') { shuffle(deck); setPhase('cut'); }
   else if (phase === 'cut') instruction.textContent = 'Tocca direttamente il mazzo per scegliere il punto di taglio.';
@@ -307,6 +309,7 @@ primaryBtn.onclick = () => {
   } else reset();
 };
 modeBtn.onclick = () => {
+  if ($('appRoot').classList.contains('locked')) return;
   if (phase !== 'layout' && phase !== 'intro') return;
   mode = mode === 'sequential' ? 'fan' : 'sequential';
   modeBtn.textContent = `Modalità: ${mode === 'sequential' ? 'sequenziale' : 'ventaglio'}`;
