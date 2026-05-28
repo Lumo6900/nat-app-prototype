@@ -9,12 +9,19 @@
 <body>
   <section id="loginGate" class="login-gate">
     <form id="loginForm" class="login-panel">
+      <div class="login-mark">✶</div>
       <p class="eyebrow">Demo riservata</p>
       <h1>Carte dei Nat</h1>
-      <p>Inserisci le credenziali per provare il prototipo.</p>
-      <input id="loginUser" autocomplete="username" placeholder="utente" />
-      <input id="loginPass" autocomplete="current-password" placeholder="password" type="password" />
-      <button type="submit">Entra</button>
+      <p>Accedi per provare il prototipo interattivo su smartphone.</p>
+      <label>
+        <span>Utente</span>
+        <input id="loginUser" autocomplete="username" placeholder="nat" />
+      </label>
+      <label>
+        <span>Password</span>
+        <input id="loginPass" autocomplete="current-password" placeholder="••••••" type="password" />
+      </label>
+      <button type="submit">Entra nel prototipo</button>
       <small id="loginError" class="login-error"></small>
     </form>
   </section>
