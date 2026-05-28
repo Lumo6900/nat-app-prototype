@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Carte dei Nat — prototipo rito</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <section id="loginGate" class="login-gate">
+    <form id="loginForm" class="login-panel">
+      <p class="eyebrow">Demo riservata</p>
+      <h1>Carte dei Nat</h1>
+      <p>Inserisci le credenziali per provare il prototipo.</p>
+      <input id="loginUser" autocomplete="username" placeholder="utente" />
+      <input id="loginPass" autocomplete="current-password" placeholder="password" type="password" />
+      <button type="submit">Entra</button>
+      <small id="loginError" class="login-error"></small>
+    </form>
+  </section>
+
+  <main class="app">
+    <header>
+      <p class="eyebrow">Prototipo interattivo</p>
+      <h1>Carte dei Nat</h1>
+      <p id="instruction">Mischia il mazzo trascinando il dito sulle carte.</p>
+    </header>
+
+    <section class="stage" aria-live="polite">
+      <div id="deckArea" class="deck-area">
+        <div id="deck" class="deck" role="button" tabindex="0" aria-label="Mazzo di carte"></div>
+      </div>
+
+      <div id="spread" class="spread hidden" aria-label="Mazzo a ventaglio"></div>
+
+      <div id="layout" class="layout hidden" aria-label="Schema delle dieci carte"></div>
+    </section>
+
+    <section id="baptism" class="baptism hidden">
+      <div class="baptism-card">
+        <p id="baptismLabel">Battezza la carta</p>
+        <canvas id="signature" width="280" height="180"></canvas>
+        <div class="row">
+          <button id="circleBtn">Disegna cerchio</button>
+          <button id="clearBtn">Cancella</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="cardModal" class="card-modal hidden" aria-live="polite">
+      <div class="reading-card">
+        <p id="modalPosition" class="eyebrow">Posizione</p>
+        <div id="largeCard" class="large-card">Carta</div>
+        <p id="modalHint">Osserva bene la carta. Quando sei pronto, conferma per leggere il testo.</p>
+        <div id="readingText" class="reading-text hidden"></div>
+        <div class="row">
+          <button id="readBtn">Mostra e leggi testo</button>
+          <button id="closeModalBtn" class="secondary">Chiudi</button>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <button id="primaryBtn">Inizia</button>
+      <button id="modeBtn" class="secondary">Modalità: sequenziale</button>
+      <button id="resetBtn" class="ghost">Ricomincia</button>
+    </footer>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
