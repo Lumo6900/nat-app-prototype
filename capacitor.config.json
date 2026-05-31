@@ -1,0 +1,12 @@
+{
+  "appId": "industries.ima.natprototype",
+  "appName": "Carte dei Nat",
+  "webDir": "www",
+  "ios": {
+    "contentInset": "automatic"
+  },
+  "packageClassList": [
+    "HapticsPlugin",
+    "App.NatHapticsPlugin"
+  ]
+}

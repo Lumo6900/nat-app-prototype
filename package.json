@@ -1,0 +1,20 @@
+{
+  "name": "nat-app-prototype",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Carte dei Nat mobile prototype",
+  "scripts": {
+    "build": "rm -rf www && mkdir -p www/vendor && cp index.html styles.css app.js deck3d.js www/ && cp node_modules/three/build/three.module.js www/vendor/three.module.js",
+    "cap:sync:ios": "npm run build && npx cap sync ios",
+    "cap:open:ios": "npx cap open ios"
+  },
+  "dependencies": {
+    "@capacitor/core": "7.6.5",
+    "@capacitor/haptics": "7.0.5",
+    "@capacitor/ios": "7.6.5",
+    "three": "^0.184.0"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "7.6.5"
+  }
+}

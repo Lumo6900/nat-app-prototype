@@ -7,35 +7,16 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <section id="loginGate" class="login-gate">
-    <form id="loginForm" class="login-panel">
-      <div class="login-mark">✶</div>
-      <p class="eyebrow">Demo riservata</p>
+  <main id="appRoot" class="app">
+    <header class="app-header">
       <h1>Carte dei Nat</h1>
-      <p>Accedi per provare il prototipo interattivo su smartphone.</p>
-      <label>
-        <span>Utente</span>
-        <input id="loginUser" autocomplete="username" placeholder="nat" />
-      </label>
-      <label>
-        <span>Password</span>
-        <input id="loginPass" autocomplete="current-password" placeholder="••••••" type="password" />
-      </label>
-      <button type="submit">Entra nel prototipo</button>
-      <small id="loginError" class="login-error"></small>
-    </form>
-  </section>
-
-  <main id="appRoot" class="app locked" aria-hidden="true">
-    <header>
-      <p class="eyebrow">Prototipo interattivo</p>
-      <h1>Carte dei Nat</h1>
-      <p id="instruction">Mischia il mazzo trascinando il dito sulle carte.</p>
+      <p id="instruction" class="sr-only">Mischia il mazzo trascinando il dito sulle carte.</p>
     </header>
 
     <section class="stage" aria-live="polite">
       <div id="deckArea" class="deck-area">
         <div id="deck" class="deck" role="button" tabindex="0" aria-label="Mazzo di carte"></div>
+        <p id="deckHint" class="deck-hint hidden">Scuoti il dispositivo per mischiare il mazzo. Fermati quando senti che è il momento.</p>
       </div>
 
       <div id="spread" class="spread hidden" aria-label="Mazzo a ventaglio"></div>
@@ -69,10 +50,10 @@
 
     <footer>
       <button id="primaryBtn">Inizia</button>
-      <button id="modeBtn" class="secondary">Modalità: sequenziale</button>
       <button id="resetBtn" class="ghost">Ricomincia</button>
     </footer>
   </main>
+  <script type="module" src="deck3d.js"></script>
   <script src="app.js"></script>
 </body>
 </html>
